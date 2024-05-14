@@ -1,18 +1,23 @@
-
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './App.scss'
 import Footer from './Components/Footer'
 import TopMenu from './Components/TopMenu'
+import ProductsGrid from './Components/ProductsGrid'
 
 function App() {
- 
-  return (
-    <div className='app-content'> 
-      <TopMenu></TopMenu>
-      <main>
+  const queryClient = new QueryClient()
 
-      </main>
-      <Footer></Footer>
-    </div>
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <div className='app-content'> 
+        <TopMenu></TopMenu>
+        <main className='main-container'>
+          <ProductsGrid></ProductsGrid>
+        </main>
+        <Footer></Footer>
+      </div>
+    </QueryClientProvider>
   )
 }
 
