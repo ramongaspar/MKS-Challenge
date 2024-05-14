@@ -1,5 +1,6 @@
 
 import './App.scss'
+import Footer from './Components/Footer'
 import TopMenu from './Components/TopMenu'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <main>
 
       </main>
+      <Footer></Footer>
     </div>
   )
 }
