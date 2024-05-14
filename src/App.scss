@@ -1,0 +1,59 @@
+$font-stack: "Montserrat", sans-serif;
+$bg-blue: #0F52BA;
+
+
+body{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $font-stack;
+    background-color: #F9F9F9;
+    color: #FFF;
+}
+.app-content{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+
+.top-menu{
+
+    height: 101px;
+    background-color: $bg-blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .top-menu-content{
+        height: 100%;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 19px;
+        h2{
+            font-weight: 600;
+            font-size: 38px;
+        }
+        span{
+            font-size: 0.5em;
+            font-weight: 300;
+        }
+    }
+}
+.carrinho{
+    color: black;
+    background-color: #FFF;
+    width: 90px;
+    height: 45px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 0.5rem;
+    img{
+        width: 19px;
+    }
+    h3{
+        font-weight: 700;
+    }
+}
