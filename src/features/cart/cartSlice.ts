@@ -10,7 +10,6 @@ export const cartSlice = createSlice({
     initialState,
     reducers:{
         addItem:(state, action)=>{
-            action.payload
             const item = {
                 id:nanoid(),
                 text:action.payload,
@@ -20,7 +19,10 @@ export const cartSlice = createSlice({
             state.cart.push(item)
         },
         removeItem:(state,action)=>{
-            state.cart.filter((item)=>item.id != action.payload.id)
+            console.log(action.payload.id)
+            const newCart = state.cart.filter((item)=>item.id != action.payload.id)
+            state.cart = newCart
+            
         },
         moreItem:(state,action)=>{
             for(let i = 0; i<state.cart.length;i++){

@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+//retorna um componente que contém as informações do ITEM ; possuí funcionalidades de interação com o contéudo do carrinho
+
+import { useEffect, useState } from 'react'
 import { ProductObject } from '../ProductsGrid'
 import { useDispatch } from 'react-redux';
 import { lessItem, moreItem, removeItem } from '../../features/cart/cartSlice';
@@ -9,20 +11,20 @@ function CartItem({item}:{item:{id:number,text:ProductObject,counter:number}}) {
     setCurrItem(item.text);
   }, [item]);
 
-  if (!currItem) {
-    return null; // ou algum componente de carregamento/spinner
+  if (!item) {
+    return <></>
   }
-  // Verificação para garantir que currItem esteja definido antes de tentar acessá-lo
+
   
   const dispatch = useDispatch()
   const handleClickLess = ()=>{
     dispatch(lessItem(item))
-    if(item.counter === 0){
+    if(item.counter <= 1){
       dispatch(removeItem(item))
     }
-    
-    
   }
+  const price = (parseInt(currItem.price) * item.counter).toString()
+
   return (
     <div className='item-container'>
       <div className="cart-item">
@@ -41,7 +43,7 @@ function CartItem({item}:{item:{id:number,text:ProductObject,counter:number}}) {
               <span onClick={()=>dispatch(moreItem(item))} className="counter-span">+</span>
             </h3>
           </div> 
-          <h3 className="price">R${currItem.price.slice(0,currItem.price.length - 3)}</h3>
+          <h3 className="price">R${price}</h3>
         </div>  
             
       </div>

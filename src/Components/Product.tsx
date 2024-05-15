@@ -1,3 +1,4 @@
+//componente que renderiza cada produto individual com suas informações para o grid.
 
 import { useDispatch } from "react-redux"
 import { addItem } from "../features/cart/cartSlice"
@@ -24,7 +25,6 @@ function Product({product}:{product:ProductObject}) {
         </div>
       </div>
 
-     
       <div onClick={addCart} className="buy-button-container">
         <img src="/src/assets/images/shopping-bag.png"></img>
         <h3 className="buy">Comprar</h3>

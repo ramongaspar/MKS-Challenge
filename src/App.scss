@@ -4,6 +4,9 @@ $bg-footer: #EEEEEE;
 $b-radius:0.5rem;
 $border-counter:0.3px solid #BFBFBF;
 
+.sss{
+    color: white;
+}
 body{
     margin: 0;
     box-sizing: border-box;
@@ -51,6 +54,10 @@ body{
             cursor: pointer;
         }
     }
+    a {
+        text-decoration: none; 
+        color: inherit;
+      }
 }
 
 //* Botão Carrinho - Menu superior *//

@@ -1,24 +1,30 @@
+//retorna a barra lateral que exibe os itens presentes no carrinho do usuário
+
 import { useSelector } from "react-redux"
 import { ProductObject } from "../ProductsGrid" 
 import { useEffect, useState } from "react"
 import CartItem from "./CartItem"
 
 function CarrinhoCompras({closeBar, barStatus}:{closeBar:React.Dispatch<React.SetStateAction<boolean>>,barStatus:boolean}) {
-    const [total, setTotal] = useState(0)
+    const [totalPrice, setTotal] = useState(0)
+    //função para ocultar esse componente
     const handleClose = ()=>{
         closeBar(!barStatus)
     }
 
     const myCart = useSelector((state:any)=>state.cart)
+    
     useEffect(()=>{
+    console.log(myCart)
       if(myCart.length){
         console.log(myCart)
-        const total = myCart.reduce((acc:number, item:{text:ProductObject}, counter:number, )=>{
-          return ( parseInt(item.text.price) * (counter + 1))  + acc    
+        const total = myCart.reduce((acc:number, item:{text:ProductObject,counter:number},  )=>{
+           
+          return ( parseInt(item.text.price) * (item.counter))  + acc    
         },0)
-        
+        console.log(total)
         setTotal(total)
-      }
+      }else setTotal(0)
     },[myCart])
     
     const cartItems = myCart.map((item:{id:number,text:ProductObject,counter:number})=>{
@@ -27,7 +33,9 @@ function CarrinhoCompras({closeBar, barStatus}:{closeBar:React.Dispatch<React.Se
         )
     }) 
 
+    //later
     const handleCheckout = ()=>{}  
+
     return (
         <div className="side-bar">
             <div className="side-bar-top">
@@ -40,7 +48,7 @@ function CarrinhoCompras({closeBar, barStatus}:{closeBar:React.Dispatch<React.Se
                 </div>
                 <div className="bottom-price">
                     <h2>Total:</h2>
-                    <h2>R${total.toString()}</h2>
+                    <h2>R${totalPrice.toString()}</h2>
                 </div>
             </div>
             <div className="side-bar-bottom">

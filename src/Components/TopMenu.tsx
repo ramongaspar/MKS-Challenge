@@ -5,7 +5,7 @@ function TopMenu() {
       <nav className="top-menu">
         <div className="top-menu-content">
           <div className="left-side">
-            <h2 className="title">MKS <span>Sistemas</span></h2>
+          <a href="/"><h2 className="title">MKS <span>Sistemas</span></h2></a>
           </div>
           <BotaoCarrinho></BotaoCarrinho>
         </div>

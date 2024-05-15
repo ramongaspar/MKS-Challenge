@@ -1,3 +1,5 @@
+//componente que realiza o download dos dados da api e retorna um grid com os items presentes
+
 import { useQuery } from "@tanstack/react-query"
 import Product from "./Product"
 
