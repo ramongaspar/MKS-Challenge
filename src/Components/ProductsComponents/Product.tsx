@@ -1,8 +1,8 @@
 //componente que renderiza cada produto individual com suas informações para o grid.
 
 import { useDispatch } from "react-redux"
-import { addItem } from "../features/cart/cartSlice"
-import { ProductObject } from "./ProductsGrid"
+import { addItem } from "../../features/cart/cartSlice"
+import { ProductObject } from "././ProductsGrid"
 
 
 function Product({product}:{product:ProductObject}) {
@@ -13,7 +13,6 @@ function Product({product}:{product:ProductObject}) {
   
   return (
     <div className="product-container">
-
       <div className="content-container">
         <div className="photo-container"><img src={product.photo}></img></div>
         <div className="info-container">
@@ -24,13 +23,10 @@ function Product({product}:{product:ProductObject}) {
           <p className="extra">Redesigned from scratch and completely revised.</p>
         </div>
       </div>
-
       <div onClick={addCart} className="buy-button-container">
         <img src="/src/assets/images/shopping-bag.png"></img>
         <h3 className="buy">Comprar</h3>
       </div>
-     
-    
     </div>
   )
 }

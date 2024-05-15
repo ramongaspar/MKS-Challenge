@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './App.scss'
 import Footer from './Components/Footer'
 import TopMenu from './Components/TopMenu'
-import ProductsGrid from './Components/ProductsGrid'
+import ProductsGrid from './Components/ProductsComponents/ProductsGrid'
 
 function App() {
   const queryClient = new QueryClient()

@@ -2,6 +2,9 @@
 
 import { useQuery } from "@tanstack/react-query"
 import Product from "./Product"
+import { AnimatePresence, motion } from 'framer-motion';
+import Spinner from "../MotionComponents/Spinner.tsx";
+import SmoothAppear from "../MotionComponents/SmoothAppear.tsx";
 
 export interface ProductObject {id:number,name:string,brand:string,description:string,photo:string,price:string,createdAt:string,updatedAt:string}
 
@@ -21,8 +24,20 @@ function ProductsGrid() {
   })
 
   return (
-    <div className="products-grid">
-        {productsList}
+    <div className="products-grid-container">
+      <AnimatePresence>
+        {query.isLoading ? (
+          <SmoothAppear className="">
+            <Spinner />
+          </SmoothAppear>
+  
+        ) : (
+         <SmoothAppear className="products-grid">
+           {productsList}
+         </SmoothAppear>
+          
+        )}
+      </AnimatePresence>
     </div>
   )
 }

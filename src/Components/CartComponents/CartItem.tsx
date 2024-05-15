@@ -1,9 +1,10 @@
 //retorna um componente que contém as informações do ITEM ; possuí funcionalidades de interação com o contéudo do carrinho
 
 import { useEffect, useState } from 'react'
-import { ProductObject } from '../ProductsGrid'
+import { ProductObject } from '../ProductsComponents/ProductsGrid'
 import { useDispatch } from 'react-redux';
 import { lessItem, moreItem, removeItem } from '../../features/cart/cartSlice';
+import SmoothAppear from '../MotionComponents/SmoothAppear';
 
 function CartItem({item}:{item:{id:number,text:ProductObject,counter:number}}) {
   const [currItem, setCurrItem] = useState(item.text);
@@ -26,7 +27,7 @@ function CartItem({item}:{item:{id:number,text:ProductObject,counter:number}}) {
   const price = (parseInt(currItem.price) * item.counter).toString()
 
   return (
-    <div className='item-container'>
+    <SmoothAppear className='item-container'>
       <div className="cart-item">
         <div className="left-side">
           <div className="img-container">
@@ -46,9 +47,10 @@ function CartItem({item}:{item:{id:number,text:ProductObject,counter:number}}) {
           <h3 className="price">R${price}</h3>
         </div>  
             
+        <span onClick={()=>dispatch(removeItem(item))} className='remove-button'>x</span>  
       </div>
-      <span onClick={()=>dispatch(removeItem(item))} className='remove-button'>x</span>  
-    </div>
+   
+    </SmoothAppear>
   )
 }
 
