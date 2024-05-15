@@ -1,9 +1,15 @@
 
+import { useDispatch } from "react-redux"
+import { addItem } from "../features/cart/cartSlice"
 import { ProductObject } from "./ProductsGrid"
 
+
 function Product({product}:{product:ProductObject}) {
-
-
+  const dispatch = useDispatch()
+  const addCart = ()=>{
+    dispatch(addItem(product)) 
+  }
+  
   return (
     <div className="product-container">
 
@@ -19,7 +25,7 @@ function Product({product}:{product:ProductObject}) {
       </div>
 
      
-      <div className="buy-button-container">
+      <div onClick={addCart} className="buy-button-container">
         <img src="/src/assets/images/shopping-bag.png"></img>
         <h3 className="buy">Comprar</h3>
       </div>

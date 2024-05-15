@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query"
 import Product from "./Product"
 
 export interface ProductObject {id:number,name:string,brand:string,description:string,photo:string,price:string,createdAt:string,updatedAt:string}

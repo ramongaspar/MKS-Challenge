@@ -1,4 +1,4 @@
-import BotaoCarrinho from "./BotaoCarrinho"
+import BotaoCarrinho from "./CartComponents/BotaoCarrinho"
 
 function TopMenu() {
     return (
