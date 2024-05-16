@@ -31,7 +31,7 @@ function CartItem({item}:{item:{id:number,text:ProductObject,counter:number}}) {
       <div className="cart-item">
         <div className="left-side">
           <div className="img-container">
-            <img src={currItem.photo}></img>
+            <img alt='Product Image' src={currItem.photo}></img>
           </div>
           <h3>{currItem.name}</h3>
         </div>
@@ -39,15 +39,15 @@ function CartItem({item}:{item:{id:number,text:ProductObject,counter:number}}) {
           <div className="counter-container">
             <span className="upper">Qtd:</span>
             <h3 className="cart-counter">
-              <span onClick={handleClickLess} className="counter-span">-</span>
+              <span data-testid='-' onClick={handleClickLess} className="counter-span">-</span>
               <span className="item-qtd">{item.counter}</span>
-              <span onClick={()=>dispatch(moreItem(item))} className="counter-span">+</span>
+              <span data-testid='+'onClick={()=>dispatch(moreItem(item))} className="counter-span">+</span>
             </h3>
           </div> 
           <h3 className="price">R${price}</h3>
         </div>  
             
-        <span onClick={()=>dispatch(removeItem(item))} className='remove-button'>x</span>  
+        <span data-testid='x' onClick={()=>dispatch(removeItem(item))} className='remove-button'>x</span>  
       </div>
    
     </SmoothAppear>

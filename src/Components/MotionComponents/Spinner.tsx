@@ -8,7 +8,7 @@ function Spinner() {
       animate={{ opacity: 1, rotate: 360 }}
       transition={{ repeat: Infinity, duration: 1 }}
     >
-      <div className="spinner-circle"></div>
+      <div data-testid='spinnerdiv' className="spinner-circle"></div>
     </motion.div>
   );
 }

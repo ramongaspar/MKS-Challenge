@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query"
 import Product from "./Product"
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, } from 'framer-motion';
 import Spinner from "../MotionComponents/Spinner.tsx";
 import SmoothAppear from "../MotionComponents/SmoothAppear.tsx";
 
@@ -16,7 +16,12 @@ function ProductsGrid() {
   }  
 
   const query = useQuery({queryKey:['products'], queryFn:fetchApi })
-  if (query.isLoading) return <div>carregando</div>
+  if (query.isLoading){
+    return(
+    <SmoothAppear className="">
+      <Spinner />
+     </SmoothAppear>)
+  }
   const productsList = query.data.products.map((product:ProductObject) => {
     return(
         <Product key={product.id} product={product}></Product>
@@ -26,17 +31,11 @@ function ProductsGrid() {
   return (
     <div className="products-grid-container">
       <AnimatePresence>
-        {query.isLoading ? (
-          <SmoothAppear className="">
-            <Spinner />
-          </SmoothAppear>
-  
-        ) : (
+        (
          <SmoothAppear className="products-grid">
            {productsList}
          </SmoothAppear>
-          
-        )}
+        )
       </AnimatePresence>
     </div>
   )

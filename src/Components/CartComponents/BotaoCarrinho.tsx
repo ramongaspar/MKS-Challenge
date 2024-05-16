@@ -20,7 +20,7 @@ function BotaoCarrinho() {
         <div className='b-carrinho'>
             <div onClick={handleClick} className='b-carrinho-content' >
                 <img src='src/assets/images/carrinho_compras.png'></img>
-                <h3>{quantidade}</h3>
+                <h3>{quantidade.toString()}</h3>
             </div>
             <CarrinhoCompras closeBar={setTopBar} barStatus={topBar}></CarrinhoCompras>
         </div>

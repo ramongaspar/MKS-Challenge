@@ -14,7 +14,7 @@ function Product({product}:{product:ProductObject}) {
   return (
     <div className="product-container">
       <div className="content-container">
-        <div className="photo-container"><img src={product.photo}></img></div>
+        <div className="photo-container"><img alt="Product Photo" src={product.photo}></img></div>
         <div className="info-container">
           <div className="name-container">
             <p>{product.name}</p>
