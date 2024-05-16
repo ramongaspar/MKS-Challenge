@@ -24,7 +24,7 @@ function Product({product}:{product:ProductObject}) {
         </div>
       </div>
       <div onClick={addCart} className="buy-button-container">
-        <img src="/src/assets/images/shopping-bag.png"></img>
+        <img src="https://github.com/ramongaspar/MKS-Challenge/blob/main/src/assets/images/shopping-bag.png?raw=true"></img>
         <h3 className="buy">Comprar</h3>
       </div>
     </div>
